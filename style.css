@@ -1,116 +1,122 @@
 /* ==========================================================================
-   1. VARIÁVEIS DO SISTEMA DE DESIGN (PALETA SUSTENTÁVEL)
+   1. DIRETRIZES DE DESIGN, CORES E VARIÁVEIS DO SISTEMA
    ========================================================================== */
 :root {
-    --cor-fundo: #f4f9f1;
+    /* Superfícies e Textos */
+    --cor-fundo: #f4fcf3;
     --cor-card: #ffffff;
     --cor-texto-principal: #1b331e;
-    --cor-texto-secundario: #4a6b4e;
+    --cor-texto-secundario: #426345;
     
-    /* Tons de Verde */
+    /* Paleta Cromática Agrícola */
     --verde-primario: #2e7d32;
     --verde-escuro: #1b5e20;
     --verde-claro: #e8f5e9;
     --verde-destaque: #81c784;
     
-    /* Alertas e Desafios */
+    /* Estados Ambientais Críticos */
     --laranja-alerta: #e65100;
     --laranja-fundo: #fff3e0;
     
-    /* Sombras e Efeitos */
-    --sombra-suave: 0 4px 20px rgba(0, 0, 0, 0.04);
-    --sombra-card: 0 10px 30px rgba(46, 125, 50, 0.08);
-    --sombra-hover: 0 15px 35px rgba(27, 94, 32, 0.15);
-    --transicao: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Engenharia de Efeitos e Sombras */
+    --sombra-suave: 0 4px 20px rgba(0, 0, 0, 0.02);
+    --sombra-card: 0 10px 30px rgba(46, 125, 50, 0.06);
+    --sombra-hover: 0 20px 40px rgba(27, 94, 32, 0.12);
+    --transicao: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     --borda-raio: 16px;
 }
 
 /* ==========================================================================
-   2. RESET UNIVERSAL E CONFIGURAÇÕES BASE
+   2. REGRAS DE RESET E COMPORTAMENTO DE TELA
    ========================================================================== */
 * {
     margin: 0;
     padding: 0;
-    box-shadow: none;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Evita que o menu fixo cubra os títulos */
+    scroll-padding-top: 90px; /* Alinhamento correto com o cabeçalho fixo */
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--cor-fundo);
     color: var(--cor-texto-principal);
-    line-height: 1.7;
+    line-height: 1.75;
     overflow-x: hidden;
 }
 
 /* ==========================================================================
-   3. CABEÇALHO HERO (LAYOUT AMPLO COM GRADIENTE DEGRADÊ)
+   3. SEÇÃO PRINCIPAL (HEADER HERO COM DEGRADÊ FLUIDO)
    ========================================================================== */
 header {
     background: linear-gradient(135deg, var(--verde-primario), var(--verde-escuro));
     position: relative;
     color: white;
     text-align: center;
-    padding: 100px 20px;
+    padding: 120px 20px;
     overflow: hidden;
 }
 
 header::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.12) 0%, transparent 60%);
     pointer-events: none;
 }
 
 .header-conteudo {
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
 }
 
 header h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    letter-spacing: -1px;
-    margin-bottom: 15px;
-    line-height: 1.2;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+    line-height: 1.15;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 header p {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 300;
     opacity: 0.95;
+    letter-spacing: 0.5px;
 }
 
 /* ==========================================================================
-   4. MENU DE NAVEGAÇÃO COMPACTO E FIXO (STICKY NAV)
+   4. MENU NAVEGAÇÃO FIXO COM DESFOQUE DE VIDRO (GLASSMORPHISM)
    ========================================================================== */
 nav {
-    background-color: rgba(27, 94, 32, 0.95);
-    backdrop-filter: blur(10px); /* Efeito de vidro desfocado moderno */
+    background-color: rgba(27, 94, 32, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    padding: 15px 20px;
+    gap: 8px;
+    padding: 16px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 nav a {
-    color: white;
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
-    padding: 10px 20px;
+    padding: 10px 22px;
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -119,138 +125,151 @@ nav a {
 }
 
 nav a:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    background-color: rgba(255, 255, 255, 0.12);
     transform: translateY(-2px);
 }
 
+/* Estado ativo sincronizado via JavaScript ScrollSpy */
 nav a.ativo {
-    background-color: var(--branco);
+    background-color: white;
     color: var(--verde-escuro);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 nav a .material-symbols-outlined {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
 }
 
 /* ==========================================================================
-   5. ESTRUTURA PRINCIPAL E SEÇÕES (GRID E FLEXBOX)
+   5. CONTAINER MAESTRO E SEÇÕES ESTRUTURAIS
    ========================================================================== */
 .container-principal {
-    max-width: 1100px;
-    margin: 40px auto;
+    max-width: 1140px;
+    margin: 50px auto;
     padding: 0 25px;
 }
 
 section {
-    padding: 40px 0;
+    padding: 45px 0;
 }
 
 h2 {
     color: var(--verde-escuro);
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 25px;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
     position: relative;
-    display: inline-block;
+    letter-spacing: -0.5px;
 }
 
 h2::after {
     content: '';
     position: absolute;
-    bottom: -6px;
+    bottom: -8px;
     left: 0;
-    width: 40px;
-    height: 4px;
-    background-color: var(--verde-primario);
-    border-radius: 2px;
+    width: 60px;
+    height: 5px;
+    background: linear-gradient(to right, var(--verde-primario), var(--verde-destaque));
+    border-radius: 3px;
 }
 
-/* Box Padrão Refinado */
+/* Layout dos Containers Estilizados */
 .caixa {
     background-color: var(--cor-card);
-    padding: 35px;
+    padding: 40px;
     border-radius: var(--borda-raio);
     box-shadow: var(--sombra-card);
     transition: var(--transicao);
-    border: 1px solid rgba(46, 125, 50, 0.05);
+    border: 1px solid rgba(46, 125, 50, 0.04);
 }
 
 .caixa:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
     box-shadow: var(--sombra-hover);
 }
 
-/* Seção Início */
-.conteudo-inicio {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.conteudo-inicio p {
+.caixa p {
     font-size: 1.15rem;
     color: var(--cor-texto-principal);
+    margin-bottom: 20px;
 }
 
+/* Fotografias Gerais */
 img {
     width: 100%;
-    max-height: 450px;
+    max-height: 480px;
     object-fit: cover;
     border-radius: calc(var(--borda-raio) - 4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+    margin-top: 15px;
+    display: block;
 }
 
 /* ==========================================================================
-   6. CARDS DE GRID DE TECNOLOGIAS E DESAFIOS
+   6. GRID DE CARDS AVANÇADOS (TECNOLOGIAS E DESAFIOS EM MALHA)
    ========================================================================== */
 .grid-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 25px 0;
 }
 
 .card-item {
-    background: #fafdfa;
-    padding: 25px;
-    border-radius: 12px;
-    border-left: 5px solid var(--verde-primario);
+    background: #fafdf9;
+    padding: 30px;
+    border-radius: 14px;
+    border-left: 6px solid var(--verde-primario);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
     transition: var(--transicao);
 }
 
 .card-item:hover {
     background: #ffffff;
     border-left-color: var(--verde-escuro);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.05);
+    transform: scale(1.02);
 }
 
 .card-item .icone-bloco {
     background-color: var(--verde-claro);
     color: var(--verde-escuro);
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.card-item .icone-bloco .material-symbols-outlined {
+    font-size: 1.6rem;
+}
+
 .card-item h3 {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
+    font-weight: 700;
     color: var(--verde-escuro);
 }
 
-/* Customização dos Cards de Desafio (Alerta Laranja) */
+.card-item p {
+    font-size: 1rem;
+    color: var(--cor-texto-secundario);
+    margin: 0;
+}
+
+/* Modificadores de Cards para a Seção Desafios (Alerta Visual) */
 .card-desafio {
     border-left-color: var(--laranja-alerta);
-    background: #fffdfb;
+    background: #fffdfa;
 }
 
 .card-desafio:hover {
     border-left-color: #b23c00;
+    box-shadow: 0 8px 25px rgba(230, 81, 0, 0.05);
 }
 
 .card-desafio .icone-bloco {
@@ -263,24 +282,23 @@ img {
 }
 
 /* ==========================================================================
-   7. INTERATIVIDADE E COMPONENTES (BOTÕES E MENSAGENS)
+   7. BOTÕES INTERATIVOS E CAIXA DE TEXTO DINÂMICO
    ========================================================================== */
 .interacao-bloco {
-    margin-top: 35px;
+    margin-top: 40px;
     text-align: center;
 }
 
 button {
-    background-gradient: linear-gradient(135deg, var(--verde-primario), var(--verde-escuro));
-    background-color: var(--verde-primario);
+    background: linear-gradient(135deg, var(--verde-primario), var(--verde-escuro));
     color: white;
     border: none;
-    padding: 14px 32px;
-    font-size: 1rem;
+    padding: 16px 36px;
+    font-size: 1.05rem;
     font-weight: 700;
-    border-radius: 30px;
+    border-radius: 40px;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.25);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.25);
     transition: var(--transicao);
     display: inline-flex;
     align-items: center;
@@ -288,65 +306,80 @@ button {
 }
 
 button:hover {
-    background-color: var(--verde-escuro);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(27, 94, 32, 0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(27, 94, 32, 0.35);
 }
 
 button:active {
     transform: translateY(1px);
 }
 
-/* Caixa de Alerta JS */
+button .material-symbols-outlined {
+    font-size: 1.4rem;
+}
+
+/* Contêiner da Mensagem Oculta controlada estritamente via JS com classe css */
 .container-mensagem {
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
 }
 
-#mensagem {
-    max-width: 600px;
-    font-size: 1.05rem;
+.mensagem-oculta {
+    display: none; /* Estado padrão tratado no CSS */
+}
+
+/* Classe dinâmica injetada estritamente por manipulação de classes no script */
+.mensagem-visivel {
+    display: block !important;
+    max-width: 750px;
+    font-size: 1.1rem;
     color: var(--verde-escuro);
     font-weight: 600;
     background-color: var(--verde-claro);
-    padding: 18px 24px;
-    border-radius: 12px;
-    border: 1px solid rgba(46, 125, 50, 0.15);
-    border-left: 5px solid var(--verde-primario);
-    display: none; /* Controlado via Script com Animação Keyframes */
+    padding: 22px 28px;
+    border-radius: 14px;
+    border: 1px solid rgba(46, 125, 50, 0.12);
+    border-left: 6px solid var(--verde-primario);
+    animation: surgimentoSuave 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-/* Destaque Final Box */
+@keyframes surgimentoSuave {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Bloco Decorativo da Conclusão */
 .destaque-final {
-    background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
     border: 2px dashed var(--verde-destaque);
     text-align: center;
-    padding: 40px;
+    padding: 45px;
 }
 
 .destaque-final p {
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-size: 1.3rem;
+    font-weight: 600;
     color: var(--verde-escuro);
+    margin: 0;
 }
 
 /* ==========================================================================
-   8. RODAPÉ (FOOTER COESIVO)
+   8. RODAPÉ INSTITUCIONAL (FOOTER COESIVO)
    ========================================================================== */
 footer {
     background-color: var(--verde-escuro);
     color: white;
     text-align: center;
-    padding: 40px 20px;
-    margin-top: 80px;
-    border-top: 5px solid var(--verde-primario);
+    padding: 50px 20px;
+    margin-top: 100px;
+    border-top: 6px solid var(--verde-primario);
 }
 
 footer p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     opacity: 0.85;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 footer p strong {
@@ -355,27 +388,19 @@ footer p strong {
 }
 
 /* ==========================================================================
-   9. RESPONSIVIDADE COMPLETA (MEDIA QUERIES)
+   9. RESPONSIVIDADE ADAPTATIVA (MEDIA QUERIES SMART)
    ========================================================================== */
 @media (max-width: 768px) {
+    header {
+        padding: 80px 20px;
+    }
     header h1 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
     }
     header p {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
     }
     nav {
-        padding: 10px;
-        gap: 5px;
+        padding: 12px 10px;
+        gap: 4px;
     }
-    nav a {
-        font-size: 0.85rem;
-        padding: 8px 12px;
-    }
-    .caixa {
-        padding: 25px;
-    }
-    .grid-cards {
-        grid-template-columns: 1fr; /* Força coluna única em telas pequenas */
-    }
-}
