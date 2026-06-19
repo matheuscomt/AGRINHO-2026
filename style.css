@@ -71,3 +71,11 @@ footer {
     padding: 20px;
     margin-top: 30px;
 }
+
+/* Estilo para a mensagem que aparece via JavaScript */
+#mensagem {
+    margin-top: 15px;
+    font-style: italic;
+    color: #1b5e20;
+    font-weight: bold;
+}
