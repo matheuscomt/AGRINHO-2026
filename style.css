@@ -1,266 +1,381 @@
 /* ==========================================================================
-   VARIÁVEIS E DEFINIÇÕES GERAIS
+   1. VARIÁVEIS DO SISTEMA DE DESIGN (PALETA SUSTENTÁVEL)
    ========================================================================== */
 :root {
-    --cor-fundo: #f4f8f2;
-    --cor-texto: #1e331e;
+    --cor-fundo: #f4f9f1;
+    --cor-card: #ffffff;
+    --cor-texto-principal: #1b331e;
+    --cor-texto-secundario: #4a6b4e;
+    
+    /* Tons de Verde */
     --verde-primario: #2e7d32;
     --verde-escuro: #1b5e20;
     --verde-claro: #e8f5e9;
-    --branco: #ffffff;
-    --sombra: rgba(0, 0, 0, 0.06);
-    --sombra-hover: rgba(0, 0, 0, 0.12);
-    --transicao: all 0.3s ease;
+    --verde-destaque: #81c784;
+    
+    /* Alertas e Desafios */
+    --laranja-alerta: #e65100;
+    --laranja-fundo: #fff3e0;
+    
+    /* Sombras e Efeitos */
+    --sombra-suave: 0 4px 20px rgba(0, 0, 0, 0.04);
+    --sombra-card: 0 10px 30px rgba(46, 125, 50, 0.08);
+    --sombra-hover: 0 15px 35px rgba(27, 94, 32, 0.15);
+    --transicao: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --borda-raio: 16px;
 }
 
+/* ==========================================================================
+   2. RESET UNIVERSAL E CONFIGURAÇÕES BASE
+   ========================================================================== */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Evita que o menu fixo cubra os títulos */
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    line-height: 1.6;
+    color: var(--cor-texto-principal);
+    line-height: 1.7;
+    overflow-x: hidden;
 }
 
 /* ==========================================================================
-   CABEÇALHO (HEADER)
+   3. CABEÇALHO HERO (LAYOUT AMPLO COM GRADIENTE DEGRADÊ)
    ========================================================================== */
 header {
     background: linear-gradient(135deg, var(--verde-primario), var(--verde-escuro));
-    color: var(--branco);
+    position: relative;
+    color: white;
     text-align: center;
-    padding: 50px 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 100px 20px;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.header-conteudo {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 header p {
-    font-size: 1.1rem;
-    opacity: 0.9;
+    font-size: 1.3rem;
     font-weight: 300;
+    opacity: 0.95;
 }
 
 /* ==========================================================================
-   NAVEGAÇÃO (NAV)
+   4. MENU DE NAVEGAÇÃO COMPACTO E FIXO (STICKY NAV)
    ========================================================================== */
 nav {
-    background-color: var(--verde-escuro);
+    background-color: rgba(27, 94, 32, 0.95);
+    backdrop-filter: blur(10px); /* Efeito de vidro desfocado moderno */
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 15px;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 nav a {
-    color: var(--branco);
+    color: white;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
-    padding: 8px 16px;
-    border-radius: 20px;
-    display: inline-flex;
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: flex;
     align-items: center;
-    gap: 8px; /* Espaço entre o ícone e o texto */
+    gap: 8px;
     transition: var(--transicao);
 }
 
 nav a:hover {
     background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
 }
 
-/* Ajuste específico para o tamanho dos ícones do Google no menu */
+nav a.ativo {
+    background-color: var(--branco);
+    color: var(--verde-escuro);
+}
+
 nav a .material-symbols-outlined {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
 }
 
 /* ==========================================================================
-   CONTEÚDO PRINCIPAL (MAIN & SECTIONS)
+   5. ESTRUTURA PRINCIPAL E SEÇÕES (GRID E FLEXBOX)
    ========================================================================== */
 .container-principal {
-    max-width: 850px;
-    margin: 20px auto;
-    padding: 0 20px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 25px;
 }
 
 section {
-    padding: 25px 0;
+    padding: 40px 0;
 }
 
 h2 {
-    color: var(--verde-primario);
-    font-size: 1.6rem;
-    margin-bottom: 5px;
-    font-weight: 600;
+    color: var(--verde-escuro);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
     display: inline-block;
-    border-bottom: 3px solid var(--verde-primario);
-    padding-bottom: 4px;
 }
 
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 40px;
+    height: 4px;
+    background-color: var(--verde-primario);
+    border-radius: 2px;
+}
+
+/* Box Padrão Refinado */
 .caixa {
-    background-color: var(--branco);
-    padding: 25px;
-    margin-top: 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px var(--sombra);
+    background-color: var(--cor-card);
+    padding: 35px;
+    border-radius: var(--borda-raio);
+    box-shadow: var(--sombra-card);
     transition: var(--transicao);
+    border: 1px solid rgba(46, 125, 50, 0.05);
 }
 
 .caixa:hover {
-    box-shadow: 0 6px 18px var(--sombra-hover);
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-hover);
 }
 
-/* Imagens */
+/* Seção Início */
+.conteudo-inicio {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.conteudo-inicio p {
+    font-size: 1.15rem;
+    color: var(--cor-texto-principal);
+}
+
 img {
     width: 100%;
-    max-height: 380px;
+    max-height: 450px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-top: 20px;
-    display: block;
+    border-radius: calc(var(--borda-raio) - 4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
 }
 
 /* ==========================================================================
-   ELEMENTOS ESPECÍFICOS (LISTAS E BOTÕES)
+   6. CARDS DE GRID DE TECNOLOGIAS E DESAFIOS
    ========================================================================== */
-.subtitulo-tecnologia {
-    margin-bottom: 15px;
-    font-weight: 500;
-}
-
-.lista-tecnologias {
-    list-style: none;
-    margin-bottom: 20px;
-}
-
-.lista-tecnologias li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    margin-bottom: 8px;
-    background-color: #fafdf9;
-    border-left: 4px solid var(--verde-primario);
-    border-radius: 0 6px 6px 0;
-    font-size: 0.95rem;
-}
-
-.lista-tecnologias li .material-symbols-outlined {
-    color: var(--verde-primario);
-    font-size: 1.3rem;
-}
-
-/* Botões */
-.interacao-bloco {
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
     margin-top: 20px;
 }
 
-button {
-    background-color: var(--verde-primario);
-    color: var(--branco);
-    border: none;
-    padding: 12px 22px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.2);
+.card-item {
+    background: #fafdfa;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid var(--verde-primario);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     transition: var(--transicao);
+}
+
+.card-item:hover {
+    background: #ffffff;
+    border-left-color: var(--verde-escuro);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.card-item .icone-bloco {
+    background-color: var(--verde-claro);
+    color: var(--verde-escuro);
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-item h3 {
+    font-size: 1.2rem;
+    color: var(--verde-escuro);
+}
+
+/* Customização dos Cards de Desafio (Alerta Laranja) */
+.card-desafio {
+    border-left-color: var(--laranja-alerta);
+    background: #fffdfb;
+}
+
+.card-desafio:hover {
+    border-left-color: #b23c00;
+}
+
+.card-desafio .icone-bloco {
+    background-color: var(--laranja-fundo);
+    color: var(--laranja-alerta);
+}
+
+.card-desafio h3 {
+    color: #b23c00;
+}
+
+/* ==========================================================================
+   7. INTERATIVIDADE E COMPONENTES (BOTÕES E MENSAGENS)
+   ========================================================================== */
+.interacao-bloco {
+    margin-top: 35px;
+    text-align: center;
+}
+
+button {
+    background-gradient: linear-gradient(135deg, var(--verde-primario), var(--verde-escuro));
+    background-color: var(--verde-primario);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.25);
+    transition: var(--transicao);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }
 
 button:hover {
     background-color: var(--verde-escuro);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(27, 94, 32, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(27, 94, 32, 0.35);
 }
 
 button:active {
     transform: translateY(1px);
 }
 
-/* Área da mensagem interativa */
+/* Caixa de Alerta JS */
 .container-mensagem {
-    margin-top: 15px;
-    min-height: 24px; /* Evita que o layout "pule" quando o texto aparece */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 #mensagem {
-    font-size: 0.95rem;
-    font-style: italic;
+    max-width: 600px;
+    font-size: 1.05rem;
     color: var(--verde-escuro);
     font-weight: 600;
     background-color: var(--verde-claro);
-    padding: 12px 16px;
-    border-radius: 6px;
-    border-left: 4px solid var(--verde-primario);
-    display: none; /* Controlado pelo JavaScript para aparecer suavemente */
+    padding: 18px 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(46, 125, 50, 0.15);
+    border-left: 5px solid var(--verde-primario);
+    display: none; /* Controlado via Script com Animação Keyframes */
 }
 
-/* Classe utilitária para o destaque final */
+/* Destaque Final Box */
 .destaque-final {
-    background-color: var(--verde-claro);
-    border: 1px dashed var(--verde-primario);
+    background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+    border: 2px dashed var(--verde-destaque);
+    text-align: center;
+    padding: 40px;
+}
+
+.destaque-final p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--verde-escuro);
 }
 
 /* ==========================================================================
-   RODAPÉ (FOOTER)
+   8. RODAPÉ (FOOTER COESIVO)
    ========================================================================== */
 footer {
     background-color: var(--verde-escuro);
-    color: var(--branco);
+    color: white;
     text-align: center;
-    padding: 25px 20px;
-    margin-top: 50px;
-    font-size: 0.9rem;
-    border-top: 4px solid var(--verde-primario);
+    padding: 40px 20px;
+    margin-top: 80px;
+    border-top: 5px solid var(--verde-primario);
 }
 
 footer p {
+    font-size: 0.95rem;
     opacity: 0.85;
+    margin-bottom: 8px;
 }
 
 footer p strong {
-    color: var(--branco);
+    color: white;
     opacity: 1;
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE (MEDIA QUERY)
+   9. RESPONSIVIDADE COMPLETA (MEDIA QUERIES)
    ========================================================================== */
-@media (max-width: 600px) {
-    header {
-        padding: 35px 15px;
-    }
-    
+@media (max-width: 768px) {
     header h1 {
-        font-size: 1.7rem;
+        font-size: 2.2rem;
     }
-    
+    header p {
+        font-size: 1.1rem;
+    }
     nav {
-        gap: 8px;
         padding: 10px;
+        gap: 5px;
     }
-    
     nav a {
         font-size: 0.85rem;
-        padding: 6px 12px;
+        padding: 8px 12px;
     }
-    
     .caixa {
-        padding: 18px;
+        padding: 25px;
+    }
+    .grid-cards {
+        grid-template-columns: 1fr; /* Força coluna única em telas pequenas */
     }
 }
