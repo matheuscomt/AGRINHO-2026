@@ -1,81 +1,266 @@
-body {
-    font-family: Arial, sans-serif;
+/* ==========================================================================
+   VARIÁVEIS E DEFINIÇÕES GERAIS
+   ========================================================================== */
+:root {
+    --cor-fundo: #f4f8f2;
+    --cor-texto: #1e331e;
+    --verde-primario: #2e7d32;
+    --verde-escuro: #1b5e20;
+    --verde-claro: #e8f5e9;
+    --branco: #ffffff;
+    --sombra: rgba(0, 0, 0, 0.06);
+    --sombra-hover: rgba(0, 0, 0, 0.12);
+    --transicao: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    background-color: #f3f8ef;
-    color: #1f3d1f;
+    padding: 0;
 }
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   CABEÇALHO (HEADER)
+   ========================================================================== */
 header {
-    background-color: #2e7d32;
-    color: white;
+    background: linear-gradient(135deg, var(--verde-primario), var(--verde-escuro));
+    color: var(--branco);
     text-align: center;
-    padding: 30px 15px;
+    padding: 50px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   NAVEGAÇÃO (NAV)
+   ========================================================================== */
 nav {
-    background-color: #1b5e20;
-    text-align: center;
-    padding: 12px;
+    background-color: var(--verde-escuro);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
-    color: white;
+    color: var(--branco);
     text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre o ícone e o texto */
+    transition: var(--transicao);
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Ajuste específico para o tamanho dos ícones do Google no menu */
+nav a .material-symbols-outlined {
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL (MAIN & SECTIONS)
+   ========================================================================== */
+.container-principal {
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 0 20px;
 }
 
 section {
-    padding: 30px;
-    max-width: 900px;
-    margin: auto;
+    padding: 25px 0;
 }
 
 h2 {
-    color: #2e7d32;
+    color: var(--verde-primario);
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+    display: inline-block;
+    border-bottom: 3px solid var(--verde-primario);
+    padding-bottom: 4px;
 }
 
 .caixa {
-    background-color: white;
-    padding: 20px;
+    background-color: var(--branco);
+    padding: 25px;
     margin-top: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--sombra);
+    transition: var(--transicao);
 }
 
+.caixa:hover {
+    box-shadow: 0 6px 18px var(--sombra-hover);
+}
+
+/* Imagens */
 img {
     width: 100%;
-    max-height: 350px;
+    max-height: 380px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-top: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: block;
+}
+
+/* ==========================================================================
+   ELEMENTOS ESPECÍFICOS (LISTAS E BOTÕES)
+   ========================================================================== */
+.subtitulo-tecnologia {
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.lista-tecnologias {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.lista-tecnologias li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    background-color: #fafdf9;
+    border-left: 4px solid var(--verde-primario);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.95rem;
+}
+
+.lista-tecnologias li .material-symbols-outlined {
+    color: var(--verde-primario);
+    font-size: 1.3rem;
+}
+
+/* Botões */
+.interacao-bloco {
+    margin-top: 20px;
 }
 
 button {
-    background-color: #2e7d32;
-    color: white;
+    background-color: var(--verde-primario);
+    color: var(--branco);
     border: none;
-    padding: 10px 18px;
-    border-radius: 6px;
+    padding: 12px 22px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
     cursor: pointer;
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.2);
+    transition: var(--transicao);
 }
 
 button:hover {
-    background-color: #1b5e20;
+    background-color: var(--verde-escuro);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(27, 94, 32, 0.3);
 }
 
-footer {
-    background-color: #1b5e20;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
+button:active {
+    transform: translateY(1px);
 }
 
-/* Estilo para a mensagem que aparece via JavaScript */
-#mensagem {
+/* Área da mensagem interativa */
+.container-mensagem {
     margin-top: 15px;
+    min-height: 24px; /* Evita que o layout "pule" quando o texto aparece */
+}
+
+#mensagem {
+    font-size: 0.95rem;
     font-style: italic;
-    color: #1b5e20;
-    font-weight: bold;
+    color: var(--verde-escuro);
+    font-weight: 600;
+    background-color: var(--verde-claro);
+    padding: 12px 16px;
+    border-radius: 6px;
+    border-left: 4px solid var(--verde-primario);
+    display: none; /* Controlado pelo JavaScript para aparecer suavemente */
+}
+
+/* Classe utilitária para o destaque final */
+.destaque-final {
+    background-color: var(--verde-claro);
+    border: 1px dashed var(--verde-primario);
+}
+
+/* ==========================================================================
+   RODAPÉ (FOOTER)
+   ========================================================================== */
+footer {
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    border-top: 4px solid var(--verde-primario);
+}
+
+footer p {
+    opacity: 0.85;
+}
+
+footer p strong {
+    color: var(--branco);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERY)
+   ========================================================================== */
+@media (max-width: 600px) {
+    header {
+        padding: 35px 15px;
+    }
+    
+    header h1 {
+        font-size: 1.7rem;
+    }
+    
+    nav {
+        gap: 8px;
+        padding: 10px;
+    }
+    
+    nav a {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+    
+    .caixa {
+        padding: 18px;
+    }
 }
