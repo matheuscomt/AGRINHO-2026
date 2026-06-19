@@ -4,119 +4,188 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AGRINHO 2026 — Agro Forte, Futuro Sustentável</title>
-    <!-- Link para Ícones Modernos do Google -->
-    <link rel="stylesheet" href="https://googleapis.com">
+    
+    <!-- Pré-carregamento e fontes modernas para um visual premium -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Link para Biblioteca de Ícones do Google -->
+    <link rel="stylesheet" href="https://googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    
+    <!-- Folha de estilo externa -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+    <!-- Barra de Progresso de Leitura Animada via JS -->
+    <div id="barra-progresso" class="barra-leitura" aria-hidden="true"></div>
+
+    <!-- Cabeçalho Principal (Hero Section) -->
+    <header class="hero-header">
+        <div class="header-overlay"></div>
         <div class="header-conteudo">
+            <span class="badge-tag">Sustentabilidade No Campo</span>
             <h1>Agro forte, futuro sustentável</h1>
-            <p>Equilíbrio entre produção e meio ambiente</p>
+            <p>O equilíbrio inteligente entre a potência da produção e a preservação do meio ambiente.</p>
+            <div class="scroll-indicador">
+                <span class="material-symbols-outlined">expand_more</span>
+            </div>
         </div>
     </header>
 
-    <nav>
-        <a href="#inicio"><span class="material-symbols-outlined">home</span> Início</a>
-        <a href="#agro"><span class="material-symbols-outlined">agriculture</span> Agronegócio</a>
-        <a href="#sustentabilidade"><span class="material-symbols-outlined">eco</span> Sustentabilidade</a>
-        <a href="#tecnologia"><span class="material-symbols-outlined">memory</span> Tecnologia</a>
-        <a href="#desafios"><span class="material-symbols-outlined">warning</span> Desafios</a>
+    <!-- Menu de Navegação Premium e Fixo -->
+    <nav class="menu-navegacao" aria-label="Navegação Principal">
+        <div class="menu-container">
+            <a href="#inicio" class="link-nav ativo">
+                <span class="material-symbols-outlined">home</span> Início
+            </a>
+            <a href="#agro" class="link-nav">
+                <span class="material-symbols-outlined">agriculture</span> Agronegócio
+            </a>
+            <a href="#sustentabilidade" class="link-nav">
+                <span class="material-symbols-outlined">eco</span> Sustentabilidade
+            </a>
+            <a href="#tecnologia" class="link-nav">
+                <span class="material-symbols-outlined">memory</span> Tecnologia
+            </a>
+            <a href="#desafios" class="link-nav">
+                <span class="material-symbols-outlined">warning</span> Desafios
+            </a>
+        </div>
     </nav>
 
+    <!-- Área de Conteúdo Central -->
     <main class="container-principal">
         
-        <section id="inicio" class="secao-introducao">
-            <h2>Início</h2>
-            <div class="caixa">
-                <p>
-                    O agronegócio é muito importante para o Brasil, pois ajuda na produção de alimentos,
-                    gera empregos e movimenta a economia. Mas também é importante cuidar do meio ambiente
-                    para garantir um futuro melhor.
-                </p>
-                <!-- URL corrigida para puxar uma imagem real e otimizada do Unsplash -->
-                <img src="https://unsplash.com" alt="Plantação de trigo dourada ao amanhecer com raios de sol refletores">
+        <!-- Seção 1: Início -->
+        <section id="inicio" class="secao-conteudo">
+            <div class="titulo-bloco">
+                <span class="numero-secao">01</span>
+                <h2>Início da Jornada</h2>
             </div>
-        </section>
-
-        <section id="agro">
-            <h2>A importância do agronegócio</h2>
-            <div class="caixa card-destaque">
-                <p>
-                    O agronegócio está presente no cultivo de alimentos, na criação de animais,
-                    no transporte, na indústria e no comércio. Ele contribui para o crescimento do país
-                    e para o abastecimento das cidades de forma contínua.
-                </p>
-            </div>
-        </section>
-
-        <section id="sustentabilidade">
-            <h2>Sustentabilidade no campo</h2>
-            <div class="caixa">
-                <p>
-                    A sustentabilidade no campo busca produzir sem destruir os recursos naturais.
-                    Algumas práticas importantes são preservar nascentes, cuidar do solo,
-                    economizar água e evitar o desmatamento.
-                </p>
-            </div>
-        </section>
-
-        <section id="tecnologia">
-            <h2>Tecnologias sustentáveis</h2>
-            <div class="caixa">
-                <p class="subtitulo-tecnologia">
-                    A tecnologia ajuda o produtor rural a trabalhar melhor, otimizando processos e poupando insumos ambientais:
-                </p>
-                
-                <ul class="lista-tecnologias">
-                    <li><span class="material-symbols-outlined">map</span> Agricultura de precisão</li>
-                    <li><span class="material-symbols-outlined">water_drop</span> Irrigação inteligente</li>
-                    <li><span class="material-symbols-outlined">flight</span> Drones agrícolas</li>
-                    <li><span class="material-symbols-outlined">solar_power</span> Energia solar no campo</li>
-                    <li><span class="material-symbols-outlined">sensors</span> Sensores para monitorar solo e água</li>
-                </ul>
-
-                <div class="interacao-bloco">
-                    <button id="btn-mensagem">Descobrir impacto do uso tecnológico</button>
-                    <div class="container-mensagem">
-                        <p id="mensagem"></p>
+            <div class="caixa card-principal">
+                <div class="grid-dois-lados">
+                    <div class="texto-lado">
+                        <p class="paragrafo-destaque">
+                            O agronegócio é o verdadeiro motor econômico do Brasil. Ele garante a segurança alimentar de milhões de pessoas, gera empregos e movimenta o mercado global de ponta a ponta.
+                        </p>
+                        <p>
+                            Contudo, o grande marco do século XXI é a transformação verde. Produzir em larga escala exige responsabilidade com o ecossistema, garantindo a preservação biológica para as próximas gerações.
+                        </p>
+                    </div>
+                    <div class="imagem-lado">
+                        <figure class="container-imagem">
+                            <img src="https://unsplash.com" alt="Plantação agrícola dourada e vasta durante um amanhecer ensolarado">
+                            <figcaption>Práticas sustentáveis integradas ao campo.</figcaption>
+                        </figure>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="desafios">
-            <h2>Desafios ambientais</h2>
-            <div class="caixa grid-desafios">
-                <p>
-                    Entre os principais desafios estão o desmatamento, o desperdício de água,
-                    a poluição do solo e a emissão de carbono. Por isso, o uso de tecnologia
-                    e boas práticas é essencial para o futuro do agronegócio.
-                </p>
+        <!-- Seção 2: O Agronegócio -->
+        <section id="agro" class="secao-conteudo">
+            <div class="titulo-bloco">
+                <span class="numero-secao">02</span>
+                <h2>A Importância do Agronegócio</h2>
+            </div>
+            <div class="grid-cards">
+                <div class="caixa card-grid">
+                    <span class="material-symbols-outlined icone-card">grass</span>
+                    <h3>Cultivo e Nutrição</h3>
+                    <p>Presente na base da alimentação diária da população mundial, otimizando lavouras de grãos, frutas e vegetais.</p>
+                </div>
+                <div class="caixa card-grid">
+                    <span class="material-symbols-outlined icone-card">local_shipping</span>
+                    <h3>Logística & Indústria</h3>
+                    <p>Movimenta cadeias de transporte complexas, comércios locais e o parque industrial têxtil e de bioenergia.</p>
+                </div>
+                <div class="caixa card-grid">
+                    <span class="material-symbols-outlined icone-card">monitoring</span>
+                    <h3>Crescimento do País</h3>
+                    <p>Responsável direto pelo equilíbrio da balança comercial brasileira e abastecimento contínuo de recursos agrícolas.</p>
+                </div>
             </div>
         </section>
 
-        <section class="secao-final">
-            <h2>Mensagem final</h2>
-            <div class="caixa destaque-final">
-                <p>
-                    O agronegócio pode crescer economicamente sem comprometer a natureza quando existe
-                    planejamento, responsabilidade e uso correto da tecnologia. Produzir com consciência
-                    é cuidar das próximas gerações.
+        <!-- Seção 3: Sustentabilidade -->
+        <section id="sustentabilidade" class="secao-conteudo">
+            <div class="titulo-bloco">
+                <span class="numero-secao">03</span>
+                <h2>Sustentabilidade no Campo</h2>
+            </div>
+            <div class="caixa card-destaque-verde">
+                <p class="paragrafo-chamada">
+                    Produzir sem destruir: esse é o nosso maior compromisso com os recursos naturais.
                 </p>
+                <div class="grid-linhas">
+                    <div class="linha-info">
+                        <span class="material-symbols-outlined text-verde">water</span>
+                        <div>
+                            <h4>Preservação de Mananciais</h4>
+                            <p>Proteção rigorosa das matas ciliares e isolamento de nascentes para evitar a contaminação da água.</p>
+                        </div>
+                    </div>
+                    <div class="linha-info">
+                        <span class="material-symbols-outlined text-verde">layers</span>
+                        <div>
+                            <h4>Manejo Conservacionista do Solo</h4>
+                            <p>Uso de plantio direto na palha e rotação de culturas para manter os nutrientes orgânicos da terra ricos.</p>
+                        </div>
+                    </div>
+                    <div class="linha-info">
+                        <span class="material-symbols-outlined text-verde">forest</span>
+                        <div>
+                            <h4>Combate ao Desmatamento</h4>
+                            <p>Monitoramento via satélite integrado para garantir o cumprimento estrito do Código Florestal Brasileiro.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-    </main>
 
-    <footer>
-        <div class="footer-conteudo">
-            <p><strong>Projeto AGRINHO 2026</strong> — Categoria Front-End</p>
-            <p>Orgulhosamente desenvolvido por Matheus</p>
-        </div>
-    </footer>
+        <!-- Seção 4: Tecnologia -->
+        <section id="tecnologia" class="secao-conteudo">
+            <div class="titulo-bloco">
+                <span class="numero-secao">04</span>
+                <h2>Tecnologias Sustentáveis</h2>
+            </div>
+            <div class="caixa card-tecnologico">
+                <p class="subtitulo-secao">
+                    Ferramentas de alta tecnologia que mitigam o impacto ambiental enquanto elevam a eficiência produtiva no campo:
+                </p>
+                
+                <ul class="lista-tecnologias-avancada">
+                    <li>
+                        <div class="icone-circulo"><span class="material-symbols-outlined">map</span></div>
+                        <div class="lista-texto">
+                            <strong>Agricultura de precisão:</strong> Aplicação exata de insumos apenas onde a planta necessita.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icone-circulo"><span class="material-symbols-outlined">water_drop</span></div>
+                        <div class="lista-texto">
+                            <strong>Irrigação inteligente:</strong> Sensores automáticos que evitam qualquer desperdício hídrico.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icone-circulo"><span class="material-symbols-outlined">flight</span></div>
+                        <div class="lista-texto">
+                            <strong>Drones agrícolas:</strong> Mapeamento aéreo ultrarrápido para controle cirúrgico de pragas.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icone-circulo"><span class="material-symbols-outlined">solar_power</span></div>
+                        <div class="lista-texto">
+                            <strong>Energia solar fotovoltaica:</strong> Fazendas autossuficientes alimentadas por matrizes limpas.
+                        </div>
+                    </li>
+                </ul>
 
-    <!-- Vinculação do arquivo JavaScript externo -->
-    <script src="script.js"></script>
-</body>
-</html>
+                <!-- Bloco Interativo Refinado via JavaScript -->
+                <div class="container-interativo">
+                    <button id="btn-mensagem" class="btn-efeito" aria-live="polite">
+                        <span class="material-symbols-outlined">analytics</span> Descobrir Impacto Tecnológico
+                    </button>
+                    <div id="mensagem-wrapper" class="mensagem-oculta">
