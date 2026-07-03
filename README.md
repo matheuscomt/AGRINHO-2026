@@ -14,8 +14,7 @@ Uma página única (one-page) com visual futurista e minimalista, paleta de verd
 
 ```
 agrinho-2026/
-├── README.md              → esta documentação
-└── public/                → raiz do site (tudo que vai pro ar)
+    ├── README.md              → esta documentação
     ├── index.html         → estrutura e conteúdo da página
     ├── style.css          → todos os estilos (paleta, animações, responsivo)
     ├── script.js          → interações (nav, partículas, reveal, contadores, tilt 3D) + gráficos Chart.js
@@ -64,7 +63,7 @@ O GitHub Pages só serve a partir da **raiz** do repositório ou da pasta **/doc
 
 ---
 
-## 📊 Gráficos (Chart.js)
+## 📊 Gráficos
 
 Os três gráficos são renderizados só quando entram na tela (lazy + animação):
 
